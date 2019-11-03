@@ -13,14 +13,14 @@
 
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>{{ $title }} || {{ config('app.name') }}</title>
+        <title>EGCB Official Notice || {{ config('app.name') }}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         
         <!-- favicon
         ============================================ -->        
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('public/favicon.png') }}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.png') }}">
         
         <!-- Google Fonts
         ============================================ -->        
@@ -28,103 +28,103 @@
        
         <!-- Bootstrap CSS
         ============================================ -->        
-        <link rel="stylesheet" href="{{ asset('public/frontend/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
         
         <!-- Color Swithcer CSS
         ============================================ -->
-        <link rel="stylesheet" href="{{ asset('public/frontend/css/color-switcher.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/color-switcher.css') }}">
         
         <!-- Fontawsome CSS
         ============================================ -->
-        <link rel="stylesheet" href="{{ asset('public/frontend/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/font-awesome.min.css') }}">
         
         <!-- Owl Carousel CSS
         ============================================ -->
-        <link rel="stylesheet" href="{{ asset('public/frontend/css/owl.carousel.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.css') }}">
         
         <!-- jquery-ui CSS
         ============================================ -->
-        <link rel="stylesheet" href="{{ asset('public/frontend/css/jquery-ui.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/jquery-ui.css') }}">
         
         <!-- Meanmenu CSS
         ============================================ -->
-        <link rel="stylesheet" href="{{ asset('public/frontend/css/meanmenu.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/meanmenu.min.css') }}">
         
         <!-- Animate CSS
         ============================================ -->
-        <link rel="stylesheet" href="{{ asset('public/frontend/css/animate.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/animate.css') }}">
         
         <!-- Animated Headlines CSS
         ============================================ -->
-        <link rel="stylesheet" href="{{ asset('public/frontend/css/animated-headlines.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/animated-headlines.css') }}">
         
         <!-- Nivo slider CSS
         ============================================ -->
-        <link rel="stylesheet" href="{{ asset('public/frontend/lib/nivo-slider/css/nivo-slider.css') }}" type="text/css" />
-        <link rel="stylesheet" href="{{ asset('public/frontend/lib/nivo-slider/css/preview.css') }}" type="text/css" media="screen" />
+        <link rel="stylesheet" href="{{ asset('frontend/lib/nivo-slider/css/nivo-slider.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('frontend/lib/nivo-slider/css/preview.css') }}" type="text/css" media="screen" />
         
         <!-- Metarial Iconic Font CSS
         ============================================ -->
-        <link rel="stylesheet" href="{{ asset('public/frontend/css/material-design-iconic-font.css') }}">
-        <link rel="stylesheet" href="{{ asset('public/frontend/css/material-design-iconic-font.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/material-design-iconic-font.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/material-design-iconic-font.min.css') }}">
         
         <!-- Slick CSS
         ============================================ -->
-        <link rel="stylesheet" href="{{ asset('public/frontend/css/slick.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/slick.css') }}">
         
         <!-- Video CSS
         ============================================ -->
-        <link rel="stylesheet" href="{{ asset('public/frontend/css/jquery.mb.YTPlayer.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/jquery.mb.YTPlayer.css') }}">
         
         <!-- Style CSS
         ============================================ -->
-        <link rel="stylesheet" href="{{ asset('public/frontend/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/style.css') }}">
 
         <!-- PLC CSS
         ============================================ -->
-        <link rel="stylesheet" href="{{ asset('public/frontend/plc.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/plc.css') }}">
         
         <!-- Color CSS
         ============================================ -->
-        <link rel="stylesheet" href="{{ asset('public/frontend/css/color.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/color.css') }}">
         
         <!-- Responsive CSS
         ============================================ -->
-        <link rel="stylesheet" href="{{ asset('public/frontend/css/responsive.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
         
         <!-- Modernizr JS
         ============================================ -->        
-        <script src="{{ asset('public/frontend/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+        <script src="{{ asset('frontend/js/vendor/modernizr-2.8.3.min.js') }}"></script>
         
         <!-- Color Css Files
         ============================================ -->    
-        <!-- <link rel="alternate stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/color-one.css') }}" title="color-one" media="screen" />        
-        <link rel="alternate stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/color-two.css') }}" title="color-two" media="screen" />
-        <link rel="alternate stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/color-three.css') }}" title="color-three" media="screen" />
-        <link rel="alternate stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/color-four.css') }}" title="color-four" media="screen" />
-        <link rel="alternate stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/color-five.css') }}" title="color-five" media="screen" />
-        <link rel="alternate stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/color-six.css') }}" title="color-six" media="screen" />
-        <link rel="alternate stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/color-seven.css') }}" title="color-seven" media="screen" />
-        <link rel="alternate stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/color-eight.css') }}" title="color-eight" media="screen" />
-        <link rel="alternate stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/color-nine.css') }}" title="color-nine" media="screen" />
-        <link rel="alternate stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/color-ten.css') }}" title="color-ten" media="screen" />  -->
+        <!-- <link rel="alternate stylesheet" type="text/css" href="{{ asset('frontend/switcher/color-one.css') }}" title="color-one" media="screen" />        
+        <link rel="alternate stylesheet" type="text/css" href="{{ asset('frontend/switcher/color-two.css') }}" title="color-two" media="screen" />
+        <link rel="alternate stylesheet" type="text/css" href="{{ asset('frontend/switcher/color-three.css') }}" title="color-three" media="screen" />
+        <link rel="alternate stylesheet" type="text/css" href="{{ asset('frontend/switcher/color-four.css') }}" title="color-four" media="screen" />
+        <link rel="alternate stylesheet" type="text/css" href="{{ asset('frontend/switcher/color-five.css') }}" title="color-five" media="screen" />
+        <link rel="alternate stylesheet" type="text/css" href="{{ asset('frontend/switcher/color-six.css') }}" title="color-six" media="screen" />
+        <link rel="alternate stylesheet" type="text/css" href="{{ asset('frontend/switcher/color-seven.css') }}" title="color-seven" media="screen" />
+        <link rel="alternate stylesheet" type="text/css" href="{{ asset('frontend/switcher/color-eight.css') }}" title="color-eight" media="screen" />
+        <link rel="alternate stylesheet" type="text/css" href="{{ asset('frontend/switcher/color-nine.css') }}" title="color-nine" media="screen" />
+        <link rel="alternate stylesheet" type="text/css" href="{{ asset('frontend/switcher/color-ten.css') }}" title="color-ten" media="screen" />  -->
 
-        <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/color-eleven.css') }}" title="color-ten" media="screen" /> 
+        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/switcher/color-eleven.css') }}" title="color-ten" media="screen" /> 
 
                
-        <!-- <link rel="alternate stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/pattren1.css') }}" title="pattren1" media="screen" />
-        <link rel="alternate stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/pattren2.css') }}" title="pattren2" media="screen" />
-        <link rel="alternate stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/pattren3.css') }}" title="pattren3" media="screen" /> -->
+        <!-- <link rel="alternate stylesheet" type="text/css" href="{{ asset('frontend/switcher/pattren1.css') }}" title="pattren1" media="screen" />
+        <link rel="alternate stylesheet" type="text/css" href="{{ asset('frontend/switcher/pattren2.css') }}" title="pattren2" media="screen" />
+        <link rel="alternate stylesheet" type="text/css" href="{{ asset('frontend/switcher/pattren3.css') }}" title="pattren3" media="screen" /> -->
         
-        <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/pattren4.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('frontend/switcher/pattren4.css') }}"/>
 
-        <link rel="alternate stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/pattren5.css') }}" title="pattren5" media="screen" />
+        <link rel="alternate stylesheet" type="text/css" href="{{ asset('frontend/switcher/pattren5.css') }}" title="pattren5" media="screen" />
 
-        <!-- <link rel="alternate stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/background1.css') }}" title="background1" media="screen" />
-        <link rel="alternate stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/background2.css') }}" title="background2" media="screen" />
-        <link rel="alternate stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/background3.css') }}" title="background3" media="screen" />
-        <link rel="alternate stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/background4.css') }}" title="background4" media="screen" />
-        <link rel="alternate stylesheet" type="text/css" href="{{ asset('public/frontend/switcher/background5.css') }}" title="background5" media="screen" /> -->
+        <!-- <link rel="alternate stylesheet" type="text/css" href="{{ asset('frontend/switcher/background1.css') }}" title="background1" media="screen" />
+        <link rel="alternate stylesheet" type="text/css" href="{{ asset('frontend/switcher/background2.css') }}" title="background2" media="screen" />
+        <link rel="alternate stylesheet" type="text/css" href="{{ asset('frontend/switcher/background3.css') }}" title="background3" media="screen" />
+        <link rel="alternate stylesheet" type="text/css" href="{{ asset('frontend/switcher/background4.css') }}" title="background4" media="screen" />
+        <link rel="alternate stylesheet" type="text/css" href="{{ asset('frontend/switcher/background5.css') }}" title="background5" media="screen" /> -->
 
         <!-- Google Recaptcha -->
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>        

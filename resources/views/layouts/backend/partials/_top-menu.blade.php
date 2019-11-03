@@ -12,7 +12,8 @@
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
-
+                        <li><a href="{{route('user.profile')}}"><i class="fa fa-user pull-right"></i> Profile</a></li>
+                        <li><a href="{{route('profile.settings')}}"><i class="fa fa-cog pull-right"></i> Settings</a></
                         <li>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">

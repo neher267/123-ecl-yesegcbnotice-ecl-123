@@ -16,23 +16,7 @@
                         <div class="col-md-8 col-sm-8 col-xs-12">
                             <input type="text" id="name" name="name" required="required" class="form-control col-md-7 col-xs-12" value="{{$result->name}}">
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="address">Address<span class="required">*</span>
-                        </label>
-                        <div class="col-md-8 col-sm-8 col-xs-12">
-                            <input type="text" id="address" name="address" required="required" class="form-control col-md-7 col-xs-12" value="{{$result->address}}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="about">About
-                        </label>
-                        <div class="col-md-8 col-sm-8 col-xs-12">
-                            <textarea name="about" id="about" required="required" class="form-control col-md-7 col-xs-12" rows="20">{{$result->about}}</textarea>
-                        </div>
-                    </div>
+                    </div>                    
 
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="image">Image<span class="required">

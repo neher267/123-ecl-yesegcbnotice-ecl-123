@@ -10,4 +10,7 @@ class Notice extends Model
     // {
     // 	return 'id';
     // }
+
+	
+
 }
