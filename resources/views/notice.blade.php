@@ -1,13 +1,20 @@
 <html lang="en">
-<head>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>EGCB</title>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    
     <link rel="shortcut icon" href="http://localhost/egcb-project/egcb-update/admin/img/icon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
     <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/menu.css')}}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style type="text/css">
+        .link a {
+            margin-left: 0; 
+            padding: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,19 +33,19 @@
                 </div>
 
                 <div style="margin-left:0px">
+                    <!-- Search form -->
+        
                     <div class="box-content">
                         <div style="text-align: center;">
-                            <a class="btn btn-success" href="?type=all">All</a>
-                            <a class="btn btn-success" href="?type=general">General Notice</a>
-                            <a class="btn btn-success" href="?type=noc">NOC Notice</a>
-                            <a class="btn btn-success" href="?type=meeting">Meeting Notice</a>
-                            <a class="btn btn-success" href="?type=miscellaneous">Miscellaneous Notice</a>
+                            <form class="form-inline" method="GET">
+                              <input name="query" class="form-control" type="text" placeholder="Search" aria-label="Search">
+                              <button class="btn" type="submit"><i class="fa fa-search active" aria-hidden="true"></i></button>
+                            </form>
 
-                            <!-- <option value="">Select</option>
-                                <option value="general">General</option>
-                                <option value="noc">NOC</option>
-                                <option value="meeting">Meeting</option>
-                                <option value="miscellaneous">Miscellaneous</option> -->
+                            <a class="btn btn-{{ request('type')=='all' ? 'success':'default' }} btn-sm" href="{{url('?type=all')}}">All</a>
+                            @foreach($all_notice as $notice)
+                                <a class="btn btn-{{ request('type')==$notice->id ? 'success':'default' }}  btn-sm" href="{{url('?type='.$notice->id)}}">{{$notice->name}}</a>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -47,13 +54,35 @@
             <div class="col-md-12" style="margin-top: 50px;">
                 <table class="table table-striped table-bordered bootstrap-datatable datatable">
                     @if(count($results))
+                    <thead>
+                        <tr>
+                            <td width="50px">Sr.No</td>
+                            <td>Notice Title</td>
+                            <td>Date</td>
+                        </tr>
+                    </thead>
                     <tbody>
                         <?php $i=0 ?>
                         @foreach($results as $result)
                         <tr>
                             <td class="power" style="text-align: center;width:100px">{{++$i}}</td>
                             <td class="link" style="text-align: left;">
+                                @if($result->link)
+                                <a href="{{$result->link}}" target="_blank">{{ $result->title }}</a>
+                                @elseif($result->file)
                                 <a href="{{url( $result->file )}}" target="_blank">{{ $result->title }}</a>
+                                @else
+                                {{ $result->title }}
+                                @endif 
+                            </td>
+                            <td>
+                                @if($result->notice_date != '0000-00-00 00:00:00')
+                                <!–– {{ Carbon\Carbon::parse($result->notice_date) }} ––> 
+                               
+                                {{ date('d M, Y', strtotime($result->notice_date)) }} 
+                                @else
+                                 {{ date('d M, Y', strtotime($result->created_at)) }} 
+                                @endif
                             </td>
                         </tr>
                         @endforeach
@@ -64,9 +93,11 @@
                     </tr>
                     @endif                   
                 </table> 
+                @if(count($results))
                 <div class="col-md-offset-5 col-md-7">
-                    {{ $results->appends(['type' => $type])->links() }} 
-                </div>            
+                    {{ $results->appends('type',  $filter)->links() }}  
+                </div>    
+                @endif        
             </div>
         </div>
         
@@ -83,11 +114,11 @@
                         <li style="list-style: none;">
                             <a style="color: white; text-decoration: none; position: relative; top: 15px;" href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-                                <i class="fa fa-sign-out pull-right"></i>
-                                Logout
+                                <i class="fa fa-sign-out" style="padding-left: 8px; padding-top: 4px;"></i>
+                                <span style="float: left">Logout</span>
                             </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: form-inline">
                                 {{ csrf_field() }}
                             </form>
                         </li>
@@ -99,6 +130,7 @@
             </div>
         </footer>    
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
 </body>
 </html>
