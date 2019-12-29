@@ -65,7 +65,7 @@
                     @endif                   
                 </table> 
                 <div class="col-md-offset-5 col-md-7">
-                    {{ $results->links() }}  
+                    {{ $results->appends(['type' => $type])->links() }} 
                 </div>            
             </div>
         </div>

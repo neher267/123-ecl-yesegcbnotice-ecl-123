@@ -35,7 +35,7 @@ class HomeController extends Controller
             $results = Notice::where('type', $type)->latest()->paginate(20);
         }
 
-        return view('notice', compact('results'));
+        return view('notice', compact('results', 'type'));
     }
 
     public function file($file = null)
