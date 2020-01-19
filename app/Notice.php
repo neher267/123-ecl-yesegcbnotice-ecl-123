@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Notice extends Model
 {
-    // public function getRouteKeyName()
-    // {
-    // 	return 'id';
-    // }
+    public function notice_type() {
+    	return $this->belongsTo(NoticeType::class);
+    }
 }

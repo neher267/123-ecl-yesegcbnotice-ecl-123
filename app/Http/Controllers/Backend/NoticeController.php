@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Notice;
+use App\NoticeType;
 
 class NoticeController extends Controller
 {
@@ -16,15 +17,17 @@ class NoticeController extends Controller
     public function index()
     {
         $page_title = "Manage Notice";
+        $all_notice = NoticeType::orderBy('name')->get();
         if($type = request()->type)
         {
-            $results = Notice::where('type', $type)->latest()->get();
+            $type = NoticeType::findOrFail($type);
+            $results = $type->notices()->latest()->get();
         }
         else{
             $results = Notice::latest()->get();
         }
         
-        return view('pages.backend.notice.index', compact('results', 'page_title'));
+        return view('pages.backend.notice.index', compact('results', 'page_title', 'all_notice'));
     }
 
     /**
@@ -34,8 +37,9 @@ class NoticeController extends Controller
      */
     public function create()
     {
+        $all_notice = NoticeType::orderBy('name')->get();
         $page_title = "Create Notice";
-        return view('pages.backend.notice.create', compact('page_title'));
+        return view('pages.backend.notice.create', compact('page_title','all_notice'));
     }
 
     /**
@@ -45,14 +49,20 @@ class NoticeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
-        $file_name = time().'.'.$request->file->getClientOriginalExtension();    
-        $request->file->move(public_path('notice'), $file_name);
-
+    {  
         $data = new Notice;
+        
+        if($request->file) {
+            $file_name = time().'.'.$request->file->getClientOriginalExtension();    
+            $request->file->move(public_path('notice'), $file_name);
+            $data->file = 'notice/'.$file_name;
+        }
+        
         $data->title = $request->title;
-        $data->type = $request->type;
-        $data->file = 'notice/'.$file_name;
+        $data->link = $request->link;
+        $data->notice_type_id = $request->notice_type_id;
+        $data->notice_date = $request->notice_date;
+        
 
         $data->save();
 

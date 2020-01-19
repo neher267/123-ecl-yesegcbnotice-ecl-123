@@ -15,10 +15,12 @@ class CreateNoticesTable extends Migration
     {
         Schema::create('notices', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('type');
+            $table->unsignedInteger('notice_type_id');
             $table->string('title');
-            $table->string('file');
-            $table->timestamp('closing')->nullable();
+            $table->string('link')->nullable();
+            $table->string('file')->nullable();
+            $table->timestamp('notice_date');            
+            $table->timestamp('closing')->nullable();            
             $table->timestamps();
         });
     }

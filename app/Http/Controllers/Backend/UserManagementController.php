@@ -17,18 +17,18 @@ class UserManagementController extends Controller
     {
     	$name = 'users';
     	$page_title = "All Users";
-    	$results = User::where('role' ,'!=', 3)->get();
+    	$results = User::where('role' , NULL)->get();
     	return view('pages.backend.users.index', compact('results', 'page_title', 'name'));
     }
 
-    public function edit_role(User $user)
+    public function edit(User $user)
     {
     	$name = 'users';
     	$page_title = "Edit User";
     	return view('pages.backend.users.edit', compact('user', 'page_title', 'name'));
     }
 
-    public function update_role(Request $request, User $user)
+    public function update(Request $request, User $user)
     {
     	$user->role = $request->role;
     	$user->save();

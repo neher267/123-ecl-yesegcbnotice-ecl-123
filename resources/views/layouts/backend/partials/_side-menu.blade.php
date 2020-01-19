@@ -15,6 +15,8 @@
                     <li><a><i class="fa fa-cogs"></i> Settings <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ route('manage-notice.index') }}">Notice</a></li>
+                            <li><a href="{{ route('notice-types.index') }}">Notice Types</a></li>
+                            <li><a href="{{ route('users') }}">Users</a></li>
                         </ul>
                     </li> 
                 </ul>
