@@ -1,14 +1,19 @@
 <html lang="en">
-<head>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>EGCB</title>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    
     <link rel="shortcut icon" href="http://localhost/egcb-project/egcb-update/admin/img/icon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
     <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/menu.css')}}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><style type="text/css">
+        .link a {
+            margin-left: 0; 
+            padding: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -48,6 +53,13 @@
             <div class="col-md-12" style="margin-top: 50px;">
                 <table class="table table-striped table-bordered bootstrap-datatable datatable">
                     @if(count($results))
+                    <thead>
+                        <tr>
+                            <td width="50px">Sr.No</td>
+                            <td>Notice Title</td>
+                            <td>Date</td>
+                        </tr>
+                    </thead>
                     <tbody>
                         <?php $i=0 ?>
                         @foreach($results as $result)
@@ -64,9 +76,10 @@
                             </td>
                             <td>
                                 @if($result->notice_date != '0000-00-00 00:00:00')
-                                {{ Carbon\Carbon::parse($result->notice_date)->diffForHumans() }}
+                               
+                                {{ date('d M, Y', strtotime($result->notice_date)) }} 
                                 @else
-                                {{ $result->created_at->diffForHumans() }}
+                                 {{ date('d M, Y', strtotime($result->created_at)) }} 
                                 @endif
                             </td>
                         </tr>
@@ -80,7 +93,7 @@
                 </table> 
                 @if(count($results))
                 <div class="col-md-offset-5 col-md-7">
-                    {{ $results->links() }}  
+                    {{ $results->appends('type',  $filter)->links() }}  
                 </div>    
                 @endif        
             </div>
@@ -99,11 +112,11 @@
                         <li style="list-style: none;">
                             <a style="color: white; text-decoration: none; position: relative; top: 15px;" href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-                                <i class="fa fa-sign-out pull-right"></i>
-                                Logout
+                                <i class="fa fa-sign-out" style="padding-left: 8px; padding-top: 4px;"></i>
+                                <span style="float: left">Logout</span>
                             </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: form-inline">
                                 {{ csrf_field() }}
                             </form>
                         </li>
